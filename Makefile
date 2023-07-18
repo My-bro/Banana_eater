@@ -3,17 +3,23 @@
 ## File description:
 ## Makefile
 
-SRC = 	main.cpp
+SRC = 	lib/str_function/my_strlen.cpp\
+		lib/str_function/my_strncpy.cpp\
+		lib/str_function/is_inside.cpp\
+		lib/str_function/my_strcmp.cpp\
+		lib/str_function/patern_is_inside.cpp\
+		lib/linked_list_function/add_node.cpp\
+		src/file_opener.cpp\
+		src/make_include_linked_list.cpp\
+		main.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
-NAME = prog
+NAME = banana_eater
 
 CXX = g++
 
-CPPFLAGS        =    	-iquote includes
-
-LDFLAGS =
+CPPFLAGS        =    	-iquote include
 
 all: $(NAME)
 
