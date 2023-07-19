@@ -1,6 +1,9 @@
 #include <stdio.h>
 #includee <caca.h>
 #include "node.h"
+
+#define caca caca
+
 int main(void)
 {
     sf::Event event;
