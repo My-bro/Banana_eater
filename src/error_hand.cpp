@@ -13,16 +13,44 @@ int error_hand(int ac, char **argv)
 {
     flag_t flag = {false,false,false,false,false,false};
 
-    for (unsigned int i = 0; argv[i] != nullptr) {
+    unsigned int count = 0;
+    
+    if (ac != 3)
+        return 84;
+
+    for (unsigned int i = 0; argv[i] != nullptr; i++) {
         if (strcmp(argv[i],"-o") == 1) {
             flag.flag_o = true;
         }
+        if (strcmp(argv[i],"-c") == 1) {
+            flag.flag_c = true;
+        }
+        if (strcmp(argv[i],"-i") == 1) {
+            flag.flag_i = true;
+            count++;
+        }
+        if (strcmp(argv[i],"-m") == 1) {
+            flag.flag_m = true;
+            count++;
+        }
+        if (strcmp(argv[i],"-do") == 1) {
+            flag.flag_do = true;
+            count++;
+        }
+        if (strcmp(argv[i],"-dc") == 1) {
+            flag.flag_dc = true;
+            count++;
+        }
     }
 
-    if (ac != 3)
+    if (flag.flag_o == true && flag.flag_c == true)
         return 84;
-    if ((strcmp(argv[2], "-o") != 0) || (strcmp(argv[2], "-c")) || (strcmp(argv[2], "-i") != 0) ||
-    (strcmp(argv[2], "-m") != 0) || (strcmp(argv[2], "-do") != 0) || (strcmp(argv[2], "-dc") != 0))
+    
+    if (flag.flag_o == false && flag.flag_c == false)
         return 84;
+
+    if (count != 1)
+        return 84;
+    
     return 0;
 }
