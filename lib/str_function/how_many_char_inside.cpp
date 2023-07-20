@@ -13,5 +13,5 @@ int how_many_char_inside(char *str, char c)
             nb_c += 1;
         }
     }
-    return 0;
+    return nb_c;
 }

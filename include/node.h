@@ -9,6 +9,7 @@
     #define NODE_H_
         typedef struct node_s {
             char *str;
+            bool valid;
             struct node_s *next;
         } node_t;
 #endif /* !NODE_H_ */

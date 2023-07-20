@@ -18,6 +18,7 @@ int find_patern_line(char *line, char *patern)
     char *frst_char_patrn = new char[2];
     frst_char_patrn[0] = patern[0];
     frst_char_patrn[1] = '\0';
+
     if (is_inside(line, frst_char_patrn) == 0) {
         return 0;
     }

@@ -15,6 +15,7 @@ SRC = 	lib/str_function/my_strlen.cpp\
 		src/error_hand.cpp\
 		src/make_patern_linked_list.cpp\
 		src/extract_function.cpp\
+		src/make_lines_array_linked.cpp\
 		main.cpp
 
 OBJ = $(SRC:.cpp=.o)
