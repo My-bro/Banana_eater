@@ -12,6 +12,7 @@ SRC = 	lib/str_function/my_strlen.cpp\
 		lib/str_function/strconcat.cpp\
 		lib/linked_list_function/add_node.cpp\
 		src/file_opener.cpp\
+		src/error_hand.cpp\
 		src/make_patern_linked_list.cpp\
 		src/extract_function.cpp\
 		main.cpp
