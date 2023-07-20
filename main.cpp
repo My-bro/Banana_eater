@@ -16,11 +16,13 @@ node_t *make_patern_linked_list(char **linesArray, char *patern);
 func_t *extract_function(node_t *linesArray_linked, int line, int len_linesArray);
 int len_linked_list(node_t *head);
 node_t *make_lines_array_linked(char **linesArray);
+int error_hand(int ac, char **argv);
 
 int main(int ac, char **av)
 {
-    if (error_hand(ac, av) == 84)
-        return 84;
+    if (error_hand(ac, av) == 84) {
+        //return 84;
+    }
     char **linesArray = file_opener(av);
     node_t *linesArray_linked = make_lines_array_linked(linesArray);
     node_t *inlude_linked = make_patern_linked_list(linesArray, strdup("#include "));

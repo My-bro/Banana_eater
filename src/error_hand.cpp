@@ -6,9 +6,19 @@
 */
 
 #include <string.h>
+#include "flag.h"
+#include "string.h"
 
 int error_hand(int ac, char **argv)
 {
+    flag_t flag = {false,false,false,false,false,false};
+
+    for (unsigned int i = 0; argv[i] != nullptr) {
+        if (strcmp(argv[i],"-o") == 1) {
+            flag.flag_o = true;
+        }
+    }
+
     if (ac != 3)
         return 84;
     if ((strcmp(argv[2], "-o") != 0) || (strcmp(argv[2], "-c")) || (strcmp(argv[2], "-i") != 0) ||
