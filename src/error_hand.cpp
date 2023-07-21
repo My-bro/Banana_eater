@@ -13,12 +13,9 @@ int error_hand(int ac, char **argv)
 {
     flag_t flag = {false,false,false,false,false,false};
 
-    unsigned int count = 0;
-    
-    if (ac != 3)
-        return 84;
+    int count = 0;
 
-    for (unsigned int i = 0; argv[i] != nullptr; i++) {
+    for (unsigned int i = 0; argv[i] != nullptr; i += 1) {
         if (strcmp(argv[i],"-o") == 1) {
             flag.flag_o = true;
         }
