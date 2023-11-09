@@ -30,6 +30,8 @@ SRC = 	$(STR)my_strlen.cpp\
 		$(PARS)open_copy.cpp\
 		$(ERROR)error_hand.cpp\
 		$(WRITE)file_writting.cpp\
+		$(WRITE)src_copy_flag.cpp\
+		$(WRITE)src_dest_flag.cpp\
 		main.cpp
 
 OBJ = $(SRC:.cpp=.o)

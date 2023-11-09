@@ -32,6 +32,14 @@ int main(int ac, char **av)
     node_t *inlude_linked = make_patern_linked_list(linesArray, strdup("#include "));
     node_t *define_linked = make_patern_linked_list(linesArray, strdup("#define "));
 
+    func_node_t *function_list = make_function_linked_list(ac, av, linesArray_linked);
+    func_info_t func_info = {function_list,
+        linesArray_linked,
+        inlude_linked,
+        define_linked,
+        flag};
+    file_writting(ac, av, func_info);
+
     // while (inlude_linked != nullptr) {
     //     printf("%s\n",inlude_linked->str);    //print la linked d'include
     //     inlude_linked = inlude_linked->next;
@@ -43,14 +51,6 @@ int main(int ac, char **av)
 
     // func_t *function = new func_t;
     // function = extract_function(linesArray_linked, 6, len_linked_list(linesArray_linked));
-
-    func_node_t *function_list = make_function_linked_list(ac, av, linesArray_linked);
-    func_info_t func_info = {function_list,
-        linesArray_linked,
-        inlude_linked,
-        define_linked,
-        flag};
-    file_writting(ac, av, func_info);
 
     // while (function->HEAD != nullptr) {
     //     printf("%s\n",function->HEAD->str);    //print the content of the exctract function that came from line 6

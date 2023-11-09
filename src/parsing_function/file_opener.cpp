@@ -26,7 +26,6 @@ char **file_opener(char **av)
     }
     file.close();
 
-    // Transform vector into char**
     char **linesArray = new char*[lines.size() + 1];
     for (size_t i = 0; i < lines.size(); ++i) {
         linesArray[i] = new char[lines[i].length() + 1];

@@ -10,7 +10,6 @@
 
 node_t *add_node(node_t **head, node_t **tail, node_t **node);
 
-
 node_t *make_lines_array_linked(char **linesArray)
 {
     node_t *Head = nullptr;
