@@ -23,8 +23,11 @@ SRC = 	$(STR)my_strlen.cpp\
 		$(LINK)add_node.cpp\
 		$(LINK)make_patern_linked_list.cpp\
 		$(LINK)make_lines_array_linked.cpp\
+		$(LINK)add_func_node.cpp\
+		$(LINK)make_func_linked.cpp\
 		$(PARS)extract_function.cpp\
 		$(PARS)file_opener.cpp\
+		$(PARS)open_copy.cpp\
 		$(ERROR)error_hand.cpp\
 		$(WRITE)file_writting.cpp\
 		main.cpp

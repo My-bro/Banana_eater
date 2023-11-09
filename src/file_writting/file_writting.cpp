@@ -7,15 +7,11 @@
 
 #include <iostream>
 #include <fstream>
-#include <sstream>
-#include <stdio.h>
-#include <cstring>
-#include <cstdlib>
 #include "node.h"
 #include "function.h"
 #include "flag.h"
 
-std::ofstream opencopy(const std::string& filename, const std::string& extension);
+std::ofstream open_copy(const std::string& filename, const std::string& extension);
 
 void file_writting(int ac, char **av, func_info_t func_info)
 {
@@ -41,7 +37,7 @@ void file_writting(int ac, char **av, func_info_t func_info)
         char* newString = new char[originalLength - 1];
         strncpy(newString, av[1], originalLength - 2);
         newString[originalLength - 2] = '\0';
-        std::ofstream srcFilecopy = opencopy(newString, fileExtension);
+        std::ofstream srcFilecopy = open_copy(newString, fileExtension);
 
         if (srcFile.is_open()) {
             node_t *local_head = func_info.linesArray_linked;
