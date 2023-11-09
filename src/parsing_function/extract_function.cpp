@@ -24,7 +24,7 @@ int len_linked_list(node_t *head)
     return len_linesArray;
 }
 
-char *str_linked_lst(node_t *linesArray_linked, int i)
+char *str_linked_lst_of_i(node_t *linesArray_linked, int i)
 {
     while (i > 0) {
         linesArray_linked = linesArray_linked->next;
@@ -33,7 +33,7 @@ char *str_linked_lst(node_t *linesArray_linked, int i)
     return linesArray_linked->str;
 }
 
-void bann_str_linked_lst(node_t *linesArray_linked, int i)
+void ban_str_linked_lst(node_t *linesArray_linked, int i) // This function let us know wich line have been extracted
 {
     while (i > 0) {
         linesArray_linked = linesArray_linked->next;
@@ -44,23 +44,23 @@ void bann_str_linked_lst(node_t *linesArray_linked, int i)
 
 func_t *extract_function(node_t *linesArray_linked, int line, int len_linesArray)
 {
-    char *str_of_line = str_linked_lst(linesArray_linked, line);
-
-    if (line > len_linesArray) {
+    if (line > len_linesArray || line + 1 > len_linesArray) {   // check over flow if line go too far
         return nullptr;
     }
-    if (str_of_line[strlen(str_of_line) - 1] != ')') {
+
+    char *frst_function_line = str_linked_lst_of_i(linesArray_linked, line);
+
+    if (frst_function_line[strlen(frst_function_line) - 1] != ')') {
         std::cout << "cette ligne ne correspond pas au debut d'une fonction \
 oprération annulée" << std::endl;
-        return nullptr;
-    }
-    if (line + 1 > len_linesArray) {
-        return nullptr;
+        std::cout << frst_function_line << std::endl;
+        exit(84);
+        //return nullptr;
     }
 
     func_t *function = new func_t;
 
-    function->prototyp = strdup(str_linked_lst(linesArray_linked, line));
+    function->prototyp = strdup(frst_function_line);
     function->prototyp = strconcat(function->prototyp,strdup(";"));
 
     node_t *HEAD = nullptr;
@@ -68,14 +68,14 @@ oprération annulée" << std::endl;
     node_t *NODE = nullptr;
 
     NODE = new node_t;
-    NODE->str = strdup(str_linked_lst(linesArray_linked, line));
-    bann_str_linked_lst(linesArray_linked, line);
+    NODE->str = strdup(str_linked_lst_of_i(linesArray_linked, line));
+    ban_str_linked_lst(linesArray_linked, line);
     add_node(&HEAD, &TAIL, &NODE);
     NODE = NODE->next;
 
     NODE = new node_t;
-    NODE->str = strdup(str_linked_lst(linesArray_linked, line + 1));
-    bann_str_linked_lst(linesArray_linked, line + 1);
+    NODE->str = strdup(str_linked_lst_of_i(linesArray_linked, line + 1));
+    ban_str_linked_lst(linesArray_linked, line + 1);
     add_node(&HEAD, &TAIL, &NODE);
     NODE = NODE->next;
 
@@ -83,11 +83,11 @@ oprération annulée" << std::endl;
 
     for (unsigned int i = line + 2; i < len_linesArray; i += 1) {
 
-        char *current_str = str_linked_lst(linesArray_linked, i);
+        char *current_str = str_linked_lst_of_i(linesArray_linked, i);
 
         NODE = new node_t;
         NODE->str = strdup(current_str);
-        bann_str_linked_lst(linesArray_linked, i);
+        ban_str_linked_lst(linesArray_linked, i);
         add_node(&HEAD, &TAIL, &NODE);
         NODE = NODE->next;
         curly_brackets_count -= how_many_char_inside(current_str,'}');

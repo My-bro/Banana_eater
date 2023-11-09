@@ -3,19 +3,30 @@
 ## File description:
 ## Makefile
 
-SRC = 	lib/str_function/my_strlen.cpp\
-		lib/str_function/my_strncpy.cpp\
-		lib/str_function/is_inside.cpp\
-		lib/str_function/my_strcmp.cpp\
-		lib/str_function/patern_is_inside.cpp\
-		lib/str_function/how_many_char_inside.cpp\
-		lib/str_function/strconcat.cpp\
-		lib/linked_list_function/add_node.cpp\
-		src/file_opener.cpp\
-		src/error_hand.cpp\
-		src/make_patern_linked_list.cpp\
-		src/extract_function.cpp\
-		src/make_lines_array_linked.cpp\
+STR = src/str_function/
+
+LINK = src/linked_list_function/
+
+PARS = src/parsing_function/
+
+ERROR = src/error_handling/
+
+WRITE = src/file_writting/
+
+SRC = 	$(STR)my_strlen.cpp\
+		$(STR)my_strncpy.cpp\
+		$(STR)is_inside.cpp\
+		$(STR)my_strcmp.cpp\
+		$(STR)patern_is_inside.cpp\
+		$(STR)how_many_char_inside.cpp\
+		$(STR)strconcat.cpp\
+		$(LINK)add_node.cpp\
+		$(LINK)make_patern_linked_list.cpp\
+		$(LINK)make_lines_array_linked.cpp\
+		$(PARS)extract_function.cpp\
+		$(PARS)file_opener.cpp\
+		$(ERROR)error_hand.cpp\
+		$(WRITE)file_writting.cpp\
 		main.cpp
 
 OBJ = $(SRC:.cpp=.o)

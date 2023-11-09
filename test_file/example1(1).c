@@ -1,8 +1,8 @@
 #include <stdio.h>
 #includee <caca.h>
 #include "node.h"
-
 #define caca caca
+
 
 int main(void)
 {
@@ -37,10 +37,4 @@ int main(void)
 display();
     }
     return 0;
-}
-
-
-void inutile function(void)
-{
-    printf("do nothing\n");
 }

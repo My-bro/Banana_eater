@@ -16,6 +16,7 @@ char **file_opener(char **av)
     std::ifstream file(av[1]);
     if (!file.is_open()) {
         std::cout << "Failed to open the file." << std::endl;
+        exit(84);
         return nullptr;
     }
     std::vector<std::string> lines;
