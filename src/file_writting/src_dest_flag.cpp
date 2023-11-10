@@ -8,6 +8,7 @@
 #include "function.h"
 #include <iostream>
 #include <fstream>
+#include <cstring>
 
 std::ofstream open_copy(const std::string& filename, const std::string& extension);
 

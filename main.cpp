@@ -8,6 +8,7 @@
 #include <iostream>
 #include <fstream>
 #include <stdio.h>
+#include <cstring>
 #include "node.h"
 #include "function.h"
 #include "flag.h"
